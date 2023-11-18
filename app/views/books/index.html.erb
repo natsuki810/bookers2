@@ -1,0 +1,14 @@
+<h2>投稿一覧</h2>
+<% @books.each do |book| %>
+
+ <p>Title:
+  <%= book.title %>
+ </p>
+
+ <p>Opinion
+  <%= book.body %>
+ </p>
+
+ <%= link_to book.title,book_path(book.id) %>
+
+<% end %>
