@@ -1,0 +1,15 @@
+<h4>user show</h4>
+  <% @books.each do |book| %>
+   <%= link_to books_path(book.id) do %>
+    <%= image_tag @user.get_image %>
+
+   <% end %>
+
+   <p>Title</p>
+    <%= link_to book.title, book_path(book.id) %>
+
+
+   <p>Opinion</p>
+    <%= book.body %>
+
+  <% end %>
