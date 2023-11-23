@@ -1,18 +1,29 @@
-<h2>Users</h2>
-<%= @books.each do |book| %>
-
-<h4>image</h4>
-<% if user.image.attached? %>
- <%= image_tag user.image, size: "200x200" %>
-<% else %>
- <%= image_tag 'no_image', size: "200X200" %>
-<% end %>
-
-<h4>name</h4>
-<%= f.text_area :name%>
-
-<%= link_to "Show", user_path %>
-
-<% end %>
-
-<%= render 'books/list', books: @books %>
+<div class="container">
+ <div class="row">
+    <div class="col-md-3">
+   <%= render 'user', user: @user %>
+   <%= render 'books/list', book: @book %>
+  </div>
+  <div class="col-md-8 offset-1">
+   <h2 class="info">Users</h2>
+   <table class="users-table">
+    <thead>
+     <tr>
+      <th>image</th>
+      <th>name</th>
+      <th></th>
+     </tr>
+    </thead>
+    <tbody>
+     <%= @users.each do |user| %>
+     <tr>
+      <th><%= image_tag @user.get_image %></th>
+      <th><%= @user.name %></th>
+      <th><%= link_to "Show", user_path(user.id) %></th>
+     </tr>
+     <% end %>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>

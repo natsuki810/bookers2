@@ -23,13 +23,16 @@
            <ul class="navbar-nav ml-auto">
              <% if user_signed_in? %>
              <li class="nav-item">
+               <%= link_to "Home", user_session_path, class: 'nav-link text-dark' %>
+             </li>
+             <li class="nav-item">
+               <%= link_to "Users", users_path, class: 'nav-link text-dark' %>
+             </li>
+             <li class="nav-item">
+               <%= link_to "Books", books_path, class: 'nav-link text-dark' %>
+             </li>
+             <li class="nav-item">
                <%= link_to "log_out",destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
-             </li>
-             <li class="nav-item">
-               <%= link_to "sign_up",new_user_registration_path, class: 'nav-link text-dark' %>
-             </li>
-             <li class="nav-item">
-               <%= link_to "log_in",new_user_session_path, class: 'nav-link text-dark' %>
              </li>
              <% end %>
            </ul>
@@ -37,6 +40,11 @@
         </div>
       </nav>
     </div>
+  
+     <% flash.each do |message_type, message| %>
+      <div class="flash-message <%= message_type %>"><%= message %></div>
+     <% end %>
+
     <%= yield %>
   </body>
   <footer>

@@ -1,17 +1,22 @@
-<h2>編集画面</h2>
-<%= form_with model: @book do |f| %>
-
-<h4>Title</h4>
-<%= f.text_field :title %>
-
-<h4>Opinion</h4>
-<%= f.text_area :body %>
-
-<%= f.submit 'Update Book' %>
-
-<%= link_to "Show", book_path %>
-<%= link_to "Back", books_path %>
-
-<% end %>
-
-<%= render 'list', books: @books %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <%= form_with model: @book do |f| %>
+      <h1>Editing Book</h1>
+      <div class="bookd-edit-form-group">
+        <%= f.label :title,"Title" %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="bookd-edit-form-group">
+        <%= f.label :body,"Opinion" %>
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
+      <div class="bookd-edit-form-group">
+        <%= f.submit 'Create Book', class: "btn btn-success" %>
+        <%= link_to "Show", book_path %>
+        <%= link_to "Back", books_path %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

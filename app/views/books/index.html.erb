@@ -1,9 +1,10 @@
 <div class="container">
  <div class="row">
   <div class="col-md-3">
-   <%= render 'list', books: @books %>
+   <%= render 'users/user', user: @user %>
+   <%= render 'list', book: @book %>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-8 offset-md-1">
    <h2 class="info">Books</h2>
    <table class="books-table">
     <thead>
