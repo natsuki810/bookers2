@@ -1,3 +1,27 @@
-<h2> User info</h2>
+<h2>User Info</h2>
+<%= image_tag @user.get_image %>
+<div class="user-info">
+  <div class="user-name">name
+      <%= @user.name %>
+  </div>
+  <div class="user-body">introduction
+      <%= @user.introduction %>
+  </div>
+</div>
+<%= link_to "Usershow", edit_user_path(@user.id) %>
 
-<%= image_tag book_image.get_image %>
+<%= form_with model: @book do |f| %>
+    <h2>New Book</h2>
+    <div class="books-index-title form-group">
+     <%= f.label :title,"Title" %>
+     <%= f.text_field :title, class: "form-control"%>
+    </div>
+
+
+    <div class="books-index-body form-group">
+     <%= f.label :body,"Opinion" %>
+     <%= f.text_area :body, class: "form-control" %>
+    </div>
+
+    <%= f.submit 'Create Book' %>
+<% end %>
